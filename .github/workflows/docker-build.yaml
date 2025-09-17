@@ -15,13 +15,13 @@ jobs:
       - name: Login no Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.secret01 }}
-          password: ${{ secrets.secret02 }}
+          username: ${{ secrets.username }}
+          password: ${{ secrets.token1 }}
 
       - name: Build da imagem
         run: |
-          docker build -t ${{ secrets.secret01 }}/minha-app:latest .
+          docker build -t ${{ secrets.username }}/minha-app:latest .
 
       - name: Push da imagem
         run: |
-          docker push ${{ secrets.secret01 }}/minha-app:latest
+          docker push ${{ secrets.username }}/minha-app:latest
